@@ -52,7 +52,21 @@ export default {
       }"> ${this.$store.state.beers.website}</a></span></div>`;
     }
   },
-  mounted() {}
+  mounted() {
+    var getPosition = function(options) {
+      return new Promise(function(resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject, options);
+      });
+    };
+
+    getPosition()
+      .then(position => {
+        console.log("position", position);
+      })
+      .catch(err => {
+        console.error(err.message);
+      });
+  }
 };
 </script>
 
