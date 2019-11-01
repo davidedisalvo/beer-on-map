@@ -37,9 +37,19 @@ export default {
       return L.latLng(lat, long);
     },
     popup() {
-      return `<div><h2>${this.$store.state.beers.name}</h2><p>${
+      return `<div><h2>${
+        this.$store.state.beers.name
+      }</h2><p class="popup-text">City: ${
         this.$store.state.beers.city
-      }</p></div>`;
+      }</p><p class="popup-text">State: ${
+        this.$store.state.beers.state
+      }</p><p class="popup-text">Country: ${
+        this.$store.state.beers.country
+      }</p><p class="popup-text">Type: ${
+        this.$store.state.beers.type
+      }</p><span class="popup-text">Website: <a class="popup-text" href="${
+        this.$store.state.beers.website
+      }"> ${this.$store.state.beers.website}</a></span></div>`;
     }
   },
   mounted() {}
