@@ -48,7 +48,10 @@ export default {
 
 <style lang="scss" scoped>
 .map {
-  height: 95vh;
-  width: 50vw;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <h1>Select a beer from the list</h1>
+    <Layer></Layer>
+
     <main>
+      <h1>Select a beer from the list</h1>
+
       <BeerList></BeerList>
 
       <Map></Map>
@@ -14,10 +17,12 @@
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import BeerList from "../components/BeerList.vue";
 import Map from "../components/Map.vue";
+import Layer from "../components/Layer.vue";
+
 import "leaflet/dist/leaflet.css";
 
 export default {
-  components: { LMap, LTileLayer, LMarker, BeerList, Map },
+  components: { LMap, LTileLayer, LMarker, BeerList, Map, Layer },
   name: "home",
   data() {
     return {
@@ -33,9 +38,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 </style>
 
