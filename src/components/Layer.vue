@@ -15,61 +15,61 @@ export default {
       makeSmaller: false
     };
   },
-  methods: {}
-  // mounted() {
-  //   var colors = ["#d8e200", "#f7d20b"];
-  //   var rand = colors[Math.floor(Math.random() * colors.length)];
-  //   var total = 30;
-  //   var box = document.getElementById("box"),
-  //     w = window.innerWidth,
-  //     h = window.innerHeight;
-  //   console.log(w);
-  //   for (var i = 0; i < total; i++) {
-  //     var Div = document.createElement("div");
-  //     TweenLite.set(Div, {
-  //       attr: { class: "dot" },
-  //       x: R(0, w - 100),
-  //       y: R(-200, -150),
-  //       z: R(-200, 200),
-  //       scale: R(0.3, 2),
-  //       transformOrigin: "center",
-  //       border: "1px solid " + rand
-  //     });
-  //     box.appendChild(Div);
-  //     animm(Div);
-  //   }
-  //   function animm(elm) {
-  //     TweenMax.to(elm, R(2, 5), {
-  //       y: "-=500",
-  //       ease: Linear.easeNone,
-  //       repeat: -1,
-  //       delay: -15
-  //     });
-  //     TweenMax.fromTo(
-  //       elm,
-  //       R(0.02, 2),
-  //       {
-  //         left: R(2, 5)
-  //       },
-  //       {
-  //         left: R(-2, -5),
-  //         repeat: -1 /* Aka infinite amount of repeats */,
-  //         yoyo: true /* Make it go back and forth */
-  //       }
-  //     );
-  //     TweenMax.to(elm, R(2, 8), {
-  //       repeat: -1,
-  //       yoyo: true,
-  //       ease: Sine.easeInOut,
-  //       delay: -5
-  //     });
-  //   }
+  methods: {},
+  mounted() {
+    var colors = ["#d8e200", "#f7d20b"];
+    var rand = colors[Math.floor(Math.random() * colors.length)];
+    var total = 30;
+    var box = document.getElementById("box"),
+      w = window.innerWidth,
+      h = window.innerHeight;
+    console.log(w);
+    for (var i = 0; i < total; i++) {
+      var Div = document.createElement("div");
+      TweenLite.set(Div, {
+        attr: { class: "dot" },
+        x: R(0, w - 100),
+        y: R(-200, -150),
+        z: R(-200, 200),
+        scale: R(0.3, 2),
+        transformOrigin: "center",
+        border: "1px solid " + rand
+      });
+      box.appendChild(Div);
+      animm(Div);
+    }
+    function animm(elm) {
+      TweenMax.to(elm, R(2, 5), {
+        y: "-=500",
+        ease: Linear.easeNone,
+        repeat: -1,
+        delay: -15
+      });
+      TweenMax.fromTo(
+        elm,
+        R(0.02, 2),
+        {
+          left: R(2, 5)
+        },
+        {
+          left: R(-2, -5),
+          repeat: -1 /* Aka infinite amount of repeats */,
+          yoyo: true /* Make it go back and forth */
+        }
+      );
+      TweenMax.to(elm, R(2, 8), {
+        repeat: -1,
+        yoyo: true,
+        ease: Sine.easeInOut,
+        delay: -5
+      });
+    }
 
-  //   //random number
-  //   function R(min, max) {
-  //     return min + Math.random() * (max - min);
-  //   }
-  // }
+    //random number
+    function R(min, max) {
+      return min + Math.random() * (max - min);
+    }
+  }
 };
 </script>
 

@@ -20,7 +20,8 @@ export default {
     return {
       zoom: 10,
       center: null,
-      url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      url:
+        "https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=3eeffe78d4454d8ab83cbb1f08f30619",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       marker: L.latLng(47.41322, -1.219482),
