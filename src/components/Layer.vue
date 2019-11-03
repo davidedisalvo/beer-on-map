@@ -83,7 +83,6 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   top: 0;
   left: 0;
@@ -93,12 +92,19 @@ img {
   position: relative;
   z-index: 9999;
   max-width: 100%;
+  @media only screen and (max-width: 420px) {
+    max-width: 50%;
+    max-height: 50%;
+  }
 }
 h1 {
   color: #f7d20b;
   font-family: "Staatliches", cursive;
   font-size: 65px;
   letter-spacing: 10px;
+  @media only screen and (max-width: 420px) {
+    font-size: 35px;
+  }
 }
 button {
   width: 300px;

@@ -3,8 +3,6 @@
     <Layer></Layer>
 
     <main>
-      <h1>Select a beer from the list</h1>
-
       <BeerList></BeerList>
 
       <Map></Map>

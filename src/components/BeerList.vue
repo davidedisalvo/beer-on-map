@@ -59,7 +59,10 @@ export default {
   left: 50px;
   display: block;
   height: 34px;
-  width: 75%;
+  width: 50vh;
+  @media only screen and (max-width: 420px) {
+    width: calc(100vw - 60px);
+  }
   transition: all 1s;
 }
 

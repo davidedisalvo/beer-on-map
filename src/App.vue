@@ -19,20 +19,14 @@
 body {
   overflow: hidden;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   width: 400px !important;
   height: 305px !important;
+  @media only screen and (max-width: 420px) {
+    width: 80vw !important;
+  }
 }
 .dot {
   width: 2px;
@@ -45,6 +39,7 @@ body {
 
 .popup-text {
   font-size: 18px;
+  word-break: break-all;
 }
 </style>
 
