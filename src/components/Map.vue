@@ -1,5 +1,5 @@
 <template>
-  <div class="map">
+  <div class="map" v-if="gettingLocation">
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :lat-lng="getCoords">
@@ -18,14 +18,17 @@ export default {
   components: { LMap, LTileLayer, LMarker, LIcon, LPopup },
   data() {
     return {
-      zoom: 7,
-      center: L.latLng(47.41322, -1.219482),
+      zoom: 10,
+      center: null,
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       marker: L.latLng(47.41322, -1.219482),
       icon: beer,
-      iconSize: [55, 55]
+      iconSize: [55, 55],
+      location: null,
+      gettingLocation: false,
+      errorStr: null
     };
   },
   computed: {
@@ -36,6 +39,7 @@ export default {
       this.center = L.latLng(lat, long);
       return L.latLng(lat, long);
     },
+
     popup() {
       return `<div><h2>${
         this.$store.state.beers.name
@@ -53,19 +57,40 @@ export default {
     }
   },
   mounted() {
-    var getPosition = function(options) {
-      return new Promise(function(resolve, reject) {
-        navigator.geolocation.getCurrentPosition(resolve, reject, options);
-      });
-    };
-
-    getPosition()
-      .then(position => {
-        console.log("position", position);
-      })
-      .catch(err => {
-        console.error(err.message);
-      });
+    //do we support geolocation
+    if (!("geolocation" in navigator)) {
+      this.errorStr = "Geolocation is not available.";
+      return;
+    }
+    // get position
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        this.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
+        this.gettingLocation = true;
+      },
+      err => {
+        this.gettingLocation = false;
+        this.errorStr = err.message;
+      }
+    );
+  },
+  updated() {
+    //do we support geolocation
+    if (!("geolocation" in navigator)) {
+      this.errorStr = "Geolocation is not available.";
+      return;
+    }
+    // get position
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        this.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
+        this.gettingLocation = true;
+      },
+      err => {
+        this.gettingLocation = false;
+        this.errorStr = err.message;
+      }
+    );
   }
 };
 </script>

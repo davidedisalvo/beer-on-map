@@ -52,7 +52,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .beerlist {
-  width: 100%;
   z-index: 99999;
   height: 20px;
   position: absolute;
@@ -60,6 +59,7 @@ export default {
   left: 50px;
   display: block;
   height: 34px;
+  width: 75%;
   transition: all 1s;
 }
 
