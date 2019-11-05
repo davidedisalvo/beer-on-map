@@ -118,7 +118,11 @@ font-family: 'Exo 2', sans-serif;
 }
 
 #svgContainer {
-  width: 50%;
+  width:30vw;
+    @media only screen and (max-width: 720px) {
+      width: 50%;
+
+  }
 }
 button {
   width: 300px;
