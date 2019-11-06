@@ -19,7 +19,7 @@ export default {
   methods: {
     makeSmallerFunc() {
       this.makeSmaller = true;
-      this.$store.dispatch('currentLocation', )
+      // this.$store.dispatch('currentLocation', )
     }
   },
   mounted() {
@@ -76,11 +76,11 @@ export default {
     }
 
     /* Shapes */
-let anim = bodymovin.loadAnimation({
-    container: document.getElementById('svgContainer'),
-    renderer: 'svg',
-    path: 'https://assets3.lottiefiles.com/temp/lf20_YbXgAc.json'
-});
+    let anim = bodymovin.loadAnimation({
+      container: document.getElementById("svgContainer"),
+      renderer: "svg",
+      path: "https://assets3.lottiefiles.com/temp/lf20_YbXgAc.json"
+    });
   }
 };
 </script>
@@ -108,17 +108,16 @@ img {
 }
 h1 {
   color: #f7d20b;
-font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 65px;
   letter-spacing: 10px;
   @media only screen and (max-width: 720px) {
-      font-size: 45px;
-
+    font-size: 45px;
   }
 }
 
 #svgContainer {
-  width:31vw;
+  width: 31vw;
   height: 50vh;
   @media only screen and (max-width: 720px) {
     width: 50%;
@@ -132,7 +131,7 @@ button {
   font-size: 20px;
   font-weight: bold;
   border: none;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 
   cursor: pointer;
 }

@@ -6,6 +6,8 @@ import {
   Icon
 } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import VueGeolocation from 'vue-browser-geolocation';
+Vue.use(VueGeolocation);
 
 
 // this part resolve an issue where the markers would not appear

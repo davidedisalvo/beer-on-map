@@ -24,7 +24,6 @@ export default {
         "https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=3eeffe78d4454d8ab83cbb1f08f30619",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      marker: L.latLng(47.41322, -1.219482),
       icon: beer,
       iconSize: [55, 55],
       location: null,
@@ -58,41 +57,72 @@ export default {
     }
   },
   mounted() {
-    //do we support geolocation
+    // do we support geolocation
     if (!("geolocation" in navigator)) {
       this.errorStr = "Geolocation is not available.";
       return;
     }
     // get position
+    var self = this;
     navigator.geolocation.getCurrentPosition(
       pos => {
-        this.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
-        this.gettingLocation = true;
+        self.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
+        self.gettingLocation = true;
       },
       err => {
-        this.gettingLocation = false;
-        this.errorStr = err.message;
-      }
+        self.gettingLocation = false;
+        self.errorStr = err.message;
+      },
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }
     );
-  },
-  updated() {
-    //do we support geolocation
     if (!("geolocation" in navigator)) {
       this.errorStr = "Geolocation is not available.";
       return;
     }
     // get position
+    var self = this;
     navigator.geolocation.getCurrentPosition(
       pos => {
-        this.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
-        this.gettingLocation = true;
+        self.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
+        self.gettingLocation = true;
       },
       err => {
-        this.gettingLocation = false;
-        this.errorStr = err.message;
-      }
+        self.gettingLocation = false;
+        self.errorStr = err.message;
+      },
+      { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }
     );
+
+    // var self = this;
+    // this.$watchLocation()
+    //   .then(coordinates => {
+    //     var el = L.latLng(coordinates.lat, coordinates.lng);
+    //     console.log(el);
+    //     self.center = el;
+    //   })
+    //   .then(() => {
+    //     self.gettingLocation = true;
+    //   });
   }
+  // updated() {
+  //   //do we support geolocation
+  //   if (!("geolocation" in navigator)) {
+  //     this.errorStr = "Geolocation is not available.";
+  //     return;
+  //   }
+  //   // get position
+  //   navigator.geolocation.getCurrentPosition(
+  //     pos => {
+  //       this.center = L.latLng(pos.coords.latitude, pos.coords.longitude);
+  //       this.gettingLocation = true;
+  //     },
+  //     err => {
+  //       this.gettingLocation = false;
+  //       this.errorStr = err.message;
+  //     },
+  //     { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true }
+  //   );
+  // }
 };
 </script>
 
