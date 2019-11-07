@@ -33,11 +33,15 @@ export default {
   },
   computed: {
     getCoords() {
-      let lat = parseInt(this.$store.state.beers.latitude);
-      let long = this.$store.state.beers.longitude;
-      console.log(this.$store.state.beers.latitude);
-      this.center = L.latLng(lat, long);
-      return L.latLng(lat, long);
+      if (Object.entries(this.$store.state.beers).length !== 0) {
+        let lat = parseInt(this.$store.state.beers.latitude);
+        let long = this.$store.state.beers.longitude;
+        console.log(this.$store.state.beers.latitude);
+        this.center = L.latLng(lat, long);
+        return L.latLng(lat, long);
+      } else {
+        return L.latLng(50, 1);
+      }
     },
 
     popup() {
