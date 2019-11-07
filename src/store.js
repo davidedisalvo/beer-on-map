@@ -6,8 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     beers: {
-      latitude: 47.41322,
-      longitude: -1.219482
+
     },
     // myLocation: {
     //   latitude: 0,
