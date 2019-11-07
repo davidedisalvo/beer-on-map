@@ -2,7 +2,7 @@
   <div class="map" v-if="gettingLocation">
     <l-map :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="getCoords">
+      <l-marker :lat-lng="getCoords" v-if="Object.entries(this.$store.state.beers).length !== 0">
         <l-icon :icon-url="icon" :icon-size="iconSize"></l-icon>
         <l-popup :content="popup" :options="{ autoClose: false, closeOnClick: false }"></l-popup>
       </l-marker>
@@ -40,7 +40,7 @@ export default {
         this.center = L.latLng(lat, long);
         return L.latLng(lat, long);
       } else {
-        return L.latLng(50, 1);
+        return L.latLng(0, 0);
       }
     },
 

@@ -103,7 +103,7 @@ export default {
   height: 100vh;
   background: black;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,13 +126,13 @@ h1 {
   font-weight: normal;
 
   @media only screen and (max-width: 720px) {
-    font-size: 45px;
+    font-size: 35px;
   }
 }
 
 #svgContainer {
   width: 31vw;
-  height: 50vh;
+  height: 40vh;
   @media only screen and (max-width: 720px) {
     width: 50%;
   }
