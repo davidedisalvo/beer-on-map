@@ -33,6 +33,13 @@ body {
     width: 80vw !important;
   }
 }
+
+.leaflet-popup-content {
+  width: 100% !important;
+  div:first-child {
+    width: 100%;
+  }
+}
 .dot {
   width: 2px;
   height: 2px;
