@@ -13,13 +13,17 @@ import { TimelineLite } from "gsap";
 export default {
   data() {
     return {
-      makeSmaller: false
+      makeSmaller: false,
+      anim: null
     };
   },
   methods: {
     makeSmallerFunc() {
+      const self = this;
+      setTimeout(function() {
+        self.anim.playSegments([55, 100], true);
+      }, 800);
       this.makeSmaller = true;
-      // this.$store.dispatch('currentLocation', )
     }
   },
   mounted() {
@@ -75,12 +79,19 @@ export default {
       return min + Math.random() * (max - min);
     }
 
+    //bodymovin init //////////////////////////////////////////
     /* Shapes */
     let anim = bodymovin.loadAnimation({
       container: document.getElementById("svgContainer"),
       renderer: "svg",
       path: "https://assets3.lottiefiles.com/temp/lf20_YbXgAc.json"
     });
+
+    anim.addEventListener("DOMLoaded", function() {
+      anim.play();
+      anim.playSegments([1, 38], true);
+    });
+    this.anim = anim;
   }
 };
 </script>
@@ -108,9 +119,12 @@ img {
 }
 h1 {
   color: #f7d20b;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Rubik Mono One", sans-serif;
   font-size: 65px;
-  letter-spacing: 10px;
+  letter-spacing: 7px;
+  padding: 0 100px;
+  font-weight: normal;
+
   @media only screen and (max-width: 720px) {
     font-size: 45px;
   }
@@ -124,26 +138,28 @@ h1 {
   }
 }
 button {
-  width: 300px;
-  height: 80px;
+  width: 250px;
+  height: 60px;
   border-radius: 5px;
   background: #f7d20b;
   font-size: 20px;
-  font-weight: bold;
+  letter-spacing: 5px;
+
   border: none;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Anton", sans-serif;
 
   cursor: pointer;
 }
 .smaller {
   transform: translateY(-100vh);
   transition: all 1s;
-  transition-delay: 1s;
+  transition-delay: 1.7s;
 
   #svgContainer {
     visibility: hidden;
     transform: translateX(100vw) !important;
     transition: all 0.6s ease-in-out;
+    transition-delay: 1.2s;
   }
   h1 {
     opacity: 0;
